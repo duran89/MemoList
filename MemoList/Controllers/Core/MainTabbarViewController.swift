@@ -30,7 +30,10 @@ class MainTabbarViewController: UITabBarController{
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
         
         self.tabBar.backgroundColor = .systemBackground
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         makeNavigationBarUI()
     }
     
@@ -38,10 +41,12 @@ class MainTabbarViewController: UITabBarController{
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()  // 불투명
         
-        navigationController?.navigationBar.tintColor = .blue
+        
+        // 네비게이션 바의 배경색을 지정해주기 위해서는 scrollEdgeAppearance도 같이 할 것 
+        navigationController?.navigationBar.backgroundColor = .systemBackground
         navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationBar.compactAppearance = appearance
-//        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+//      navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         title = "To Do List"
     }
