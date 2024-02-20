@@ -12,6 +12,7 @@ class MainTabbarViewController: UITabBarController{
     override func viewDidLoad() {
         // self.view.backgroundColor = .systemBackground
         
+        
         let vc1 = UINavigationController(rootViewController: HomeViewController())
         let vc2 = UINavigationController(rootViewController: SearchViewController())
         let vc3 = UINavigationController(rootViewController: NotificationViewController())
@@ -31,26 +32,5 @@ class MainTabbarViewController: UITabBarController{
         
         self.tabBar.backgroundColor = .systemBackground
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        makeNavigationBarUI()
-    }
-    
-    func makeNavigationBarUI() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()  // 불투명
-        
-        
-        // 네비게이션 바의 배경색을 지정해주기 위해서는 scrollEdgeAppearance도 같이 할 것 
-        navigationController?.navigationBar.backgroundColor = .systemBackground
-        navigationController?.navigationBar.standardAppearance = appearance
-//      navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        title = "To Do List"
-    }
-
-
 }
 

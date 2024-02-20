@@ -17,6 +17,8 @@
 		AD8E94DB2B838CEB0038CFE0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E94DA2B838CEB0038CFE0 /* SearchViewController.swift */; };
 		AD8E94DD2B838D030038CFE0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E94DC2B838D030038CFE0 /* NotificationViewController.swift */; };
 		AD8E94DF2B838EB10038CFE0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E94DE2B838EB10038CFE0 /* CalendarViewController.swift */; };
+		AD8E94E22B845C610038CFE0 /* TodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E94E12B845C610038CFE0 /* TodoListTableViewCell.swift */; };
+		AD8E94E52B84674A0038CFE0 /* NavigationAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E94E42B84674A0038CFE0 /* NavigationAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		AD8E94DA2B838CEB0038CFE0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AD8E94DC2B838D030038CFE0 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		AD8E94DE2B838EB10038CFE0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		AD8E94E12B845C610038CFE0 /* TodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTableViewCell.swift; sourceTree = "<group>"; };
+		AD8E94E42B84674A0038CFE0 /* NavigationAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,9 @@
 			children = (
 				AD8E94BF2B838BAD0038CFE0 /* AppDelegate.swift */,
 				AD8E94C12B838BAD0038CFE0 /* SceneDelegate.swift */,
+				AD8E94E02B845B0A0038CFE0 /* Views */,
 				AD8E94D62B838BD90038CFE0 /* Controllers */,
+				AD8E94E32B8467170038CFE0 /* Supporting */,
 				AD8E94CB2B838BAF0038CFE0 /* Assets.xcassets */,
 				AD8E94CD2B838BAF0038CFE0 /* LaunchScreen.storyboard */,
 				AD8E94D02B838BAF0038CFE0 /* Info.plist */,
@@ -93,6 +99,22 @@
 				AD8E94DE2B838EB10038CFE0 /* CalendarViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		AD8E94E02B845B0A0038CFE0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E94E12B845C610038CFE0 /* TodoListTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD8E94E32B8467170038CFE0 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E94E42B84674A0038CFE0 /* NavigationAppearance.swift */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,9 +192,11 @@
 				AD8E94D92B838CD90038CFE0 /* HomeViewController.swift in Sources */,
 				AD8E94C42B838BAD0038CFE0 /* MainTabbarViewController.swift in Sources */,
 				AD8E94DD2B838D030038CFE0 /* NotificationViewController.swift in Sources */,
+				AD8E94E52B84674A0038CFE0 /* NavigationAppearance.swift in Sources */,
 				AD8E94C02B838BAD0038CFE0 /* AppDelegate.swift in Sources */,
 				AD8E94C22B838BAD0038CFE0 /* SceneDelegate.swift in Sources */,
 				AD8E94CA2B838BAD0038CFE0 /* MemoList.xcdatamodeld in Sources */,
+				AD8E94E22B845C610038CFE0 /* TodoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
