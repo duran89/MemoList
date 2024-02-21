@@ -9,29 +9,47 @@ import UIKit
 
 class TodoListTableViewCell: UITableViewCell {
     
+    // didSet 속성을 통해 테이블 셀을 업데이트
+    var todo: Todo? {
+        didSet {
+            
+            guard let todo = todo else { return }
+            
+            contentImageView.image = todo.contentImage
+            titleLabel.text = todo.title
+            todoTextContentLabel.text = todo.todoContents
+            
+            // date 타입의 날짜를 포맷
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss 작성됨"
+            dateLabel.text = formatter.string(from: (todo.regdate)!)
+            
+        }
+    }
+    
     static let identifier = "TodoListTableViewCell"
     
-    private let dateLabel: UILabel = {
+    let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "2024년 2월 21일"
+        label.text = "2024년 2월 21일 11시 30분 작성"
         label.font = .systemFont(ofSize: 12, weight: .bold)
         label.textColor = .label
         return label
     }()
     
-    private let contentImageView: UIImageView = {
+    let contentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "스파이더맨")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .red
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "오늘은 하루가 너무 길었다."
@@ -40,7 +58,7 @@ class TodoListTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let todoTextContentLabel: UILabel = {
+    let todoTextContentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "오늘은 내가 하고 싶은 일이 많이 있었지만, 그 일들을 다 하지 못했다. 그래서 너무 너무 슬펐다. 내일은 좀 더 잘해보자"

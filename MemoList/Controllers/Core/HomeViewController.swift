@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var todoListManager = TodoListManager()
+    
     // MARK: 테이블 뷰 설정하기
     private var timelineTableView: UITableView = {
         let tableView = UITableView()
@@ -25,7 +27,8 @@ class HomeViewController: UIViewController {
         view.addSubview(timelineTableView)
         timelineTableView.delegate = self
         timelineTableView.dataSource = self
-
+        
+        todoListManager.makeTodoListDatas()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,7 +43,7 @@ class HomeViewController: UIViewController {
      */
     
     func setupNavigationTitle() {
-        self.navigationItem.title = "Home Controller"
+        self.navigationItem.title = "우리가 해온 것...😀"
         
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemIndigo
@@ -64,14 +67,27 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return todoListManager.getTodoList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as? TodoListTableViewCell else { return UITableViewCell() }
         
-        return cell 
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as? TodoListTableViewCell else { return TodoListTableViewCell() }
+        
+        cell.todo = todoListManager[indexPath.row]
+        
+        // didSet 속성으로 했을 떄 시간은 어떻게 되는지 확인해볼 필요가 있음
+        // date 타입의 날짜를 포맷
+        // let formatter = DateFormatter()
+        // formatter.dateFormat = "yyyy-MM-dd HH:mm:ss 작성됨"
+        // cell.dateLabel.text = formatter.string(from: todoListManager[indexPath.row].regdate!)
+        
+        // 셀 선택했을 때 회색 안보이게
+        cell.selectionStyle = .none
+        
+        return cell
     }
 }
 
