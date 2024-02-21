@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     private var timelineTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TodoListTableViewCell.self, forCellReuseIdentifier: TodoListTableViewCell.identifier)
         // tableView.backgroundColor = .systemYellow
         return tableView
     }()
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.title = "Home Controller"
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemBlue
+        appearance.backgroundColor = .systemIndigo
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
          */
         
         
-//        self.navigationController?.navigationBar.barTintColor = .systemRed
+        // self.navigationController?.navigationBar.barTintColor = .systemRed
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .automatic
     }
@@ -69,13 +69,17 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "this is itme1"
-        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoListTableViewCell.identifier, for: indexPath) as? TodoListTableViewCell else { return UITableViewCell() }
+        
+        return cell 
     }
 }
 
 
 extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
 }
